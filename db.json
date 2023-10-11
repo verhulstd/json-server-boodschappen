@@ -1,0 +1,15 @@
+{
+  "boodschappen": [],
+  "vrienden": [
+    {
+      "id": 55,
+      "naam": "Jos",
+      "leeftijd": 38
+    },
+    {
+      "id": 57,
+      "naam": "Cindy",
+      "leeftijd": 29
+    }
+  ]
+}
