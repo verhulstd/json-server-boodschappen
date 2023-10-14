@@ -1,18 +1,18 @@
 {
   "boodschappen": [
     {
-      "naam": "7up",
-      "prijs": "3",
+      "naam": "azaaz",
+      "prijs": "12",
       "id": 1
     },
     {
-      "naam": "cola",
-      "prijs": "3",
+      "naam": "aaaa",
+      "prijs": "454",
       "id": 2
     },
     {
-      "naam": "fantas",
-      "prijs": "3",
+      "naam": "azaz",
+      "prijs": "221",
       "id": 3
     }
   ],

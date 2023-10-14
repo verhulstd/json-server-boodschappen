@@ -26,5 +26,9 @@ ul {
     .remove {
       margin-right: 1rem;
     }
+    .boodschapnaam,
+    .boodschapprijs {
+      cursor: pointer;
+    }
   }
 }

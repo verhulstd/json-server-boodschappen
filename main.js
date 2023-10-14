@@ -7,7 +7,33 @@ async function main() {
   const naamRef = document.querySelector("#naam");
   const prijsRef = document.querySelector("#prijs");
   const idRef = document.querySelector("#id");
+  const cancelRef = document.querySelector("#cancel");
   render(listRef);
+
+  listRef.ondblclick = function (e) {
+    if (
+      e.target.classList.contains("boodschapnaam") ||
+      e.target.classList.contains("boodschapprijs")
+    ) {
+      e.target.setAttribute("contenteditable", "true");
+      e.target.focus();
+      e.target.onblur = async function () {
+        e.target.setAttribute("contenteditable", "false");
+        const idToUpdate = e.target.parentElement.dataset.id;
+        const response = await fetch(basePath + idToUpdate, {
+          method: "PATCH",
+          body: JSON.stringify({
+            [e.target.classList.contains("boodschapnaam") ? "naam" : "prijs"]:
+              e.target.innerText,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        await response.json();
+      };
+    }
+  };
 
   listRef.onclick = async (e) => {
     if (e.target.classList.contains("remove")) {
@@ -50,14 +76,23 @@ async function main() {
       },
     });
     await response.json();
+    resetForm();
+
+    render(listRef);
+  };
+
+  cancelRef.onclick = () => {
+    resetForm();
+  };
+
+  function resetForm() {
     document.querySelector("legend").innerText = "Nieuw product";
     document.querySelector("#submit").value = "voeg toe";
     naamRef.value = "";
     prijsRef.value = "";
     idRef.value = "";
     naamRef.focus();
-    render(listRef);
-  };
+  }
 }
 
 main();
@@ -69,7 +104,7 @@ async function render(listRef) {
     .map(
       ({ id, naam, prijs }) => `
         <li data-id="${id}">
-            <span>${naam}</span>&nbsp;&nbsp;-&nbsp;&nbsp;<em>${prijs}€</em>
+            <span contenteditable="false" class="boodschapnaam">${naam}</span>&nbsp;&nbsp;-&nbsp;&nbsp;<em contenteditable="false" class="boodschapprijs">${prijs}</em><em>€</em>
             <button class="remove">wis</button>
             <button class="edit">wijzig</button>
         </li>
