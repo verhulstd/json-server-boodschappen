@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
   </head>
   <body>
-    <h1>Boodschappenlijst</h1>
-    <form action="">
+    <h1>Boodschappenlijst - Create Read Update Delete</h1>
+    <form action="" autocomplete="off">
       <fieldset>
-        <legend>Nieuwe product</legend>
+        <legend>Nieuw product</legend>
+        <input type="hidden" name="id" id="id" value="" />
         <label for="naam">Naam: </label>
-        <input type="text" name="naam" id="naam" />
+        <input type="text" name="naam" required id="naam" />
         <label for="prijs">Prijs: </label>
-        <input type="text" name="prijs" id="prijs" />
-        <input type="submit" value="voeg toe" />
+        <input type="text" required name="prijs" id="prijs" />
+        <input type="submit" id="submit" value="voeg toe" />
       </fieldset>
     </form>
     <ul></ul>

@@ -1,5 +1,21 @@
 {
-  "boodschappen": [],
+  "boodschappen": [
+    {
+      "naam": "7up",
+      "prijs": "3",
+      "id": 1
+    },
+    {
+      "naam": "cola",
+      "prijs": "3",
+      "id": 2
+    },
+    {
+      "naam": "fantas",
+      "prijs": "3",
+      "id": 3
+    }
+  ],
   "vrienden": [
     {
       "id": 55,

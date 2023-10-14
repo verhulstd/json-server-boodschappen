@@ -20,5 +20,11 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    em {
+      margin-right: auto;
+    }
+    .remove {
+      margin-right: 1rem;
+    }
   }
 }
